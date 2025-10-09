@@ -48,10 +48,10 @@ export class Grid {
 
   initResizeObserver() {
     // Create a ResizeObserver instance
-    this.resizeOberver = new ResizeObserver(() => this.handleResize());
+    this.resizeObserver = new ResizeObserver(() => this.handleResize());
 
     // Start observing the canvas
-    this.resizeOberver.observe(this.canvas);
+    this.resizeObserver.observe(this.canvas);
   }
 
   setup() {
@@ -120,7 +120,7 @@ export class Grid {
   draw() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.fillStyle = '#000';
-    this.blocks.forEach((blocks) => block.draw(this.ctx));
+    this.blocks.forEach((block) => block.draw(this.ctx));
   }
 
   handleResize() {
@@ -136,8 +136,8 @@ export class Grid {
 
   // Add a destroy method for cleanup
   destroy() {
-    if (this.resizeOberver) {
-      this.resizeOberver.disconnect();
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
     }
     this.canvas.removeEventListener('mousemove', this.mouseMoveHandler);
     this.canvas.removeEventListener('mouseout', this.mouseOutHandler);
