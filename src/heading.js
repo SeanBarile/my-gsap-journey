@@ -35,10 +35,6 @@ export class Heading {
       const charCloneUnshifted = char.cloneNode(true);
       const charCloneShifted = char.cloneNode(true);
 
-      // make pos absolute
-      charCloneShifted.style.position = 'absolute';
-      charCloneShifted.style.inset = '0';
-
       if (index % 4 === 0) {
         gsap.set(charCloneShifted, { yPercent: 100 });
       }
@@ -52,6 +48,16 @@ export class Heading {
         gsap.set(charCloneShifted, { xPercent: 100 });
       }
       char.innerHTML = ''; // clear the original char
+
+      // make both clones absolutely positioned and stacked
+      charCloneUnshifted.style.position = 'absolute';
+      charCloneUnshifted.style.inset = '0';
+      charCloneUnshifted.style.zIndex = '1';
+
+      charCloneShifted.style.position = 'absolute';
+      charCloneShifted.style.inset = '0';
+      charCloneShifted.style.zIndex = '2';
+
       char.appendChild(charCloneUnshifted);
       char.appendChild(charCloneShifted);
     });
