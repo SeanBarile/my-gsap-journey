@@ -14,7 +14,7 @@ export class Heading {
   }
 
   splitText(elementToSplit) {
-    const splitTypeObjext = new SplitType(elementToSplit, {
+    const splitTypeObject = new SplitType(elementToSplit, {
       type: 'chars',
     });
     const { chars } = splitTypeObjext;
@@ -22,7 +22,7 @@ export class Heading {
       char.style.overflow = 'clip';
       char.style.position = 'relative';
     });
-    return splitTypeObjext.chars;
+    return splitTypeObject.chars;
   }
 
   createDuplicateChars() {
@@ -122,7 +122,7 @@ export class Heading {
         tl.to(
           charCloneShifted,
           {
-            xPercent: 0,
+            yPercent: 0,
             duration: 1,
             ease: 'power4.out',
             yoyo: true,
