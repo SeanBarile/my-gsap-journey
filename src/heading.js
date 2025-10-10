@@ -15,9 +15,9 @@ export class Heading {
 
   splitText(elementToSplit) {
     const splitTypeObject = new SplitType(elementToSplit, {
-      type: 'chars',
+      types: 'chars',
     });
-    const { chars } = splitTypeObjext;
+    const { chars } = splitTypeObject;
     chars.forEach((char) => {
       char.style.overflow = 'clip';
       char.style.position = 'relative';
@@ -35,6 +35,7 @@ export class Heading {
       const charCloneUnshifted = char.cloneNode(true);
       const charCloneShifted = char.cloneNode(true);
 
+      // make pos absolute
       charCloneShifted.style.position = 'absolute';
       charCloneShifted.style.inset = '0';
 
