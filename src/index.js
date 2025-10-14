@@ -5,6 +5,10 @@ import { Heading } from './heading';
 
 import { reveal } from './helpers/reveal';
 
+import colorStore from './stores/ColorStore';
+
+console.log(colorStore.colors.textPrimary);
+
 const clock = new Clock('.hero_clock');
 
 const marqueeElements = document.querySelectorAll('.marquee');
