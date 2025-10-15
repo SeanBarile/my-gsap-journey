@@ -19,10 +19,10 @@ class ColorStore {
         '--theme--text-secondary'
       ),
       backgroundPrimary: getComputedStyle(document.body).getPropertyValue(
-        '--theme--bg-primary'
+        '--theme--background-primary'
       ),
       backgroundSecondary: getComputedStyle(document.body).getPropertyValue(
-        '--theme--bg-secondary'
+        '--theme--background-secondary'
       ),
       border: getComputedStyle(document.body).getPropertyValue(
         '--theme--border'

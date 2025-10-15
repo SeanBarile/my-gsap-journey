@@ -76,6 +76,7 @@ export class ToolkitText {
           // markers: true,
         },
       });
+
       gsap.set(blockForLine, {
         transformOrigin: 'bottom',
       });
@@ -106,7 +107,7 @@ export class ToolkitText {
         },
       });
 
-      // Get the previous block
+      // get the previous block
       const prevBlock = blocks[index - 1];
 
       if (!prevBlock) {

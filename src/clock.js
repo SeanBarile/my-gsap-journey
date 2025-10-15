@@ -10,7 +10,7 @@ export class Clock {
 
   // Format the time to HH:MM:SS
   formatTime(date) {
-    const pad = (num) => String(num).padStart(2, "0");
+    const pad = (num) => String(num).padStart(2, '0');
     const hours = pad(date.getHours());
     const minutes = pad(date.getMinutes());
     const seconds = pad(date.getSeconds());

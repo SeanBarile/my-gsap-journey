@@ -1,10 +1,10 @@
-import gsap from "gsap";
+import gsap from 'gsap';
 
 export class Marquee {
   constructor(rootElement) {
-    console.log("Marquee initialized");
+    console.log('Marquee initialized');
     this.marquee = rootElement;
-    this.marqueeInner = this.marquee.querySelector(".marquee_inner");
+    this.marqueeInner = this.marquee.querySelector('.marquee_inner');
     this.animation = null;
 
     this.updateDimensions();
@@ -24,7 +24,7 @@ export class Marquee {
   setup() {
     // Clear any existing clones
     const existingClones = this.marquee.querySelectorAll(
-      ".marquee_inner:not(:first-child)"
+      '.marquee_inner:not(:first-child)'
     );
     existingClones.forEach((clone) => clone.remove());
 
@@ -38,8 +38,8 @@ export class Marquee {
     }
 
     // Create a wrapper for all marquee inners
-    this.wrapper = document.createElement("div");
-    this.wrapper.style.display = "flex";
+    this.wrapper = document.createElement('div');
+    this.wrapper.style.display = 'flex';
     this.wrapper.style.gap = `${this.gap}px`;
 
     // Check if marqueeInner needs to be moved
@@ -65,12 +65,12 @@ export class Marquee {
     this.animation = gsap.to(this.wrapper, {
       x: -itemWidth,
       duration: 2,
-      ease: "none",
+      ease: 'none',
       repeat: -1,
       onRepeat: () => {
         // Immediately reset position when animation repeats
         gsap.set(this.wrapper, { x: 0 });
-        console.log("repeat");
+        console.log('repeat');
       },
     });
   }
