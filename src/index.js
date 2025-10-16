@@ -5,6 +5,7 @@ import { Heading } from './heading';
 import { ToolkitText } from './toolkit';
 
 import { reveal } from './helpers/reveal';
+import { ColorModeButton } from './colorModeButton';
 
 class App {
   constructor() {
@@ -13,6 +14,7 @@ class App {
     this.grid = null;
     this.heading = null;
     this.toolkit = null;
+    this.colorModeButton = null;
   }
 
   init() {
@@ -38,10 +40,32 @@ class App {
     if (this.toolkit) this.toolkit.destroy();
     this.toolkit = new ToolkitText('.toolkit_p');
 
+    // Initialize ColorModeButton and pass a reference to the handler
+    this.colorModeButton = new ColorModeButton(() =>
+      this.handleColorModeChange()
+    );
+
     reveal();
   }
 
-  handleColorModeChange() {}
+  handleColorModeChange() {
+    console.log('Color mode changed, reinitializing necessary components...');
+
+    // Update the grid
+    if (this.grid) {
+      this.grid.destroy();
+    }
+    this.grid = new Grid();
+
+    // Update the toolkit
+    if (this.toolkit) {
+      this.toolkit.destroy();
+    }
+    this.toolkit = new ToolkitText('.toolkit_p');
+
+    // Any other components that depend on color mode changes can also be updated here
+    console.log('Color mode-related reinitialization complete.');
+  }
 
   listenToMotionPreferenceChanges() {}
 
